@@ -1,0 +1,33 @@
+BA-101B Managerial Accounting 5
+BA-102A	Principles of Economics-Macroeconomics	3
+BA-102B	Principles of Economics-Microeconomics	3
+BA-115	Career Communication	3
+BA-116	Business English and Communication	4
+BA-123	Math for Accounting and Business	3
+BA-125	Introduction to Business	3
+BA-139	Psychology in the Workplace	3
+BA-141A	Business Law	3
+CHEM-101A	General Chemistry	5
+CHEM-101B	General Chemistry	5
+CS-101	Introduction to Computers and Information Technology	3
+CS-102	Introduction to Computer Programming Using C++	3
+CS-113	Discrete Structures	3
+CS-116	Object-Oriented Programming Using C++	4
+CS-118	Introduction to Assembly Language Programming	3
+CS-124	Programming with Data Structures	3
+ENGI-101	Introduction to Engineering	3
+ENGI-120	Engineering Mechanics - Statics	3
+ENGI-130	Electric Circuit Analysis	4
+ENGI-140	Materials Engineering	4
+MATH-101A	Calculus with Analytic Geometry	5
+MATH-101B	Calculus with Analytic Geometry	5
+MATH-101C	Calculus with Analytic Geometry	5
+MATH-103	Introduction to Linear Algebra	3
+MATH-104	Differential Equations	5
+MATH-156	Math for Liberal Arts	3
+MATH-159	Introduction to Statistics	4
+MATH-167	Calculus for Business and Social Science	4
+PHIL-106	Ethics	3
+PHYS-140	Mechanics	4
+PHYS-141	Electricity and Magnetism	4
+PHYS-142 Optics, Heat, and Modern Physics 4
