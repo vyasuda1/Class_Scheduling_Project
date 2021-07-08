@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -73,6 +74,20 @@ public class Catalog {
     public void printCourses() {
         for (Course c : courseList_) {
             System.out.println(c.toString());
+        }
+    }
+
+    /**
+     * Prints all degrees of a specified major.
+     * @param nameParam the name of the major
+     */
+    public void printMajors(String nameParam) {
+        System.out.println("List of " + nameParam + " degrees");
+        System.out.println("----------------------------------");
+        for (Degree d : degreeList_) {
+            if (d.getDegreeName_().toLowerCase().contains(nameParam.toLowerCase())) {
+                System.out.println(d.toString());
+            }
         }
     }
 }

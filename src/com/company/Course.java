@@ -11,6 +11,7 @@ public class Course implements Comparable {
     private final String courseID_;
     private final String courseName_;
     private final double units_;
+    private int occurrencesInDegrees_;
 
     /**
      * Constructs a Course object.

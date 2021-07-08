@@ -23,3 +23,8 @@ COAcc
 2020-2021
 MATH-104 PHYS-141 ENGI-120 ENGI-130 ENGI-140
 Complete 1 course from List A
+Mathematics for Transfer
+ADT
+2017-2018
+MATH-101A MATH-101B MATH-101C MATH-103 MATH-104 CS-102 MATH-111 MATH-159 PHYS-140
+Complete 1 course from List A and 1 course from List B

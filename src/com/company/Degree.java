@@ -50,7 +50,7 @@ public class Degree implements Comparable {
      */
     @Override
     public String toString() {
-        return "Name: " + degreeName_ +
+        return degreeName_ +
                 "\nType: " + degreeType_ +
                 "\nYear: " + catalogYear_ +
                 "\nCourse List: " + courseList_ +
@@ -66,6 +66,11 @@ public class Degree implements Comparable {
     @Override
     public int compareTo(Object o) {
         Degree otherDegree = (Degree) o;
-        return degreeName_.compareTo(otherDegree.getDegreeName_());
+        if (degreeName_.compareTo(otherDegree.getDegreeName_()) != 0) {
+            return degreeName_.compareTo(otherDegree.getDegreeName_());
+        }
+        else {
+            return catalogYear_.compareTo(otherDegree.catalogYear_);
+        }
     }
 }
