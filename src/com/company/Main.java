@@ -53,7 +53,7 @@ public class Main {
                     //if (!input4.equals("Q"));
                 }
             }
-            else if (input.equals("5")) {}
+            else if (input.equals("5")) {//establish counters for each course, reorder it according to that in the array list, and display}
             else if (input.equals("6")) {}
             else if (input.equals("7")) {
                 System.out.println("Goodbye!");
