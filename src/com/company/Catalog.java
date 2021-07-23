@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.TreeSet;
@@ -87,6 +88,48 @@ public class Catalog {
         for (Degree d : degreeList_) {
             if (d.getDegreeName_().toLowerCase().contains(nameParam.toLowerCase())) {
                 System.out.println(d.toString());
+            }
+        }
+    }
+
+    /**
+     * Prints all courses with a specified number of units.
+     * @param unitParam the units a course should have if printed
+     */
+    public void printCoursesByUnits(int unitParam) {
+        for (Course course : courseList_) {
+            if (course.getUnits_() == unitParam)
+                System.out.println(course);
+        }
+    }
+
+    /**
+     * Prints all degrees that contain at least one course in a list of courses.
+     * @param courseIDs the list of courses
+     */
+    public void printAllDegreesWithCourses(ArrayList<String> courseIDs) {
+        for (Degree degree : degreeList_) {
+            for (String id : courseIDs) {
+                if (degree.getCourseList_().contains(id)) {
+                    System.out.println(degree);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void printDegreesWithAllCourses(ArrayList<String> courseIDs) {
+
+        for (Degree degree : degreeList_) {
+            boolean allCoursesApply = true;
+            for (String id : courseIDs) {
+                if (!degree.getCourseList_().contains(id)) {
+                    allCoursesApply = false;
+                    break;
+                }
+            }
+            if (allCoursesApply) {
+                System.out.println(degree);
             }
         }
     }

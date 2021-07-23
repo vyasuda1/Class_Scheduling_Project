@@ -45,6 +45,14 @@ public class Degree implements Comparable {
     }
 
     /**
+     * Gets the course list
+     * @return courseList_
+     */
+    public TreeSet<String> getCourseList_() {
+        return courseList_;
+    }
+
+    /**
      * Creates a string with the degree's information.
      * @return string version of the degree
      */
