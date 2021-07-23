@@ -13,7 +13,7 @@ public class Main {
 	    Catalog myCatalog = new Catalog();
 	    Scanner in = new Scanner(System.in);
 	    String input = "";
-	    while (!input.equals("7")) {
+	    while (!input.equals("8")) {
 	        System.out.println("\nMain Menu");
 	        System.out.println("-------------------------------------------------------------");
 	        System.out.println("1. Search for Major"); //example: Math -AST, BS, COA, etc.
