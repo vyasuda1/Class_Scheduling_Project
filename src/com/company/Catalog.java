@@ -10,8 +10,8 @@ import java.util.*;
  * @version 1.0 6/30/2021
  */
 public class Catalog {
-    private TreeSet<Degree> degreeList_;
-    private TreeSet<Course> courseList_;
+    private final TreeSet<Degree> degreeList_;
+    private final TreeSet<Course> courseList_;
 
     /**
      * Constructs a Catalog object.
@@ -84,11 +84,15 @@ public class Catalog {
         System.out.println("----------------------------------");
         for (Degree d : degreeList_) {
             if (d.getDegreeName_().toLowerCase().contains(nameParam.toLowerCase())) {
-                System.out.println(d.toString());
+                System.out.println(d);
             }
         }
     }
 
+    /**
+     * Prints the classes applying toward a major from most used in the major to least.
+     * @param majorNameParam the name of the major
+     */
     public void printClassesMostUsedToLeast(String majorNameParam) {
         ArrayList<Degree> degrees = new ArrayList<>();
         for (Degree d : degreeList_) {
@@ -129,22 +133,18 @@ public class Catalog {
      */
     private HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
         // Create a list from elements of HashMap
-        List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
+        List<Map.Entry<String, Integer> > list = new LinkedList<>(hm.entrySet());
 
         // Sort the list
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                if (o2.getValue().compareTo(o1.getValue()) != 0) {
-                    return (o2.getValue()).compareTo(o1.getValue());
-                }
-                else {
-                    return o1.getKey().compareTo(o2.getKey());
-                }
-            }
+        list.sort((o1, o2) -> {
+            if (o2.getValue().compareTo(o1.getValue()) != 0)
+                return (o2.getValue()).compareTo(o1.getValue());
+            else
+                return o1.getKey().compareTo(o2.getKey());
         });
 
         // put data from sorted list to hashmap
-        HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
+        HashMap<String, Integer> temp = new LinkedHashMap<>();
         for (Map.Entry<String, Integer> aa : list) {
             temp.put(aa.getKey(), aa.getValue());
         }
