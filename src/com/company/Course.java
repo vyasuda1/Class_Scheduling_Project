@@ -33,8 +33,9 @@ public class Course implements Comparable {
         String tempInfo = info.substring(0, info.length() - 1);
         Scanner sc = new Scanner(tempInfo);
         courseID_ = sc.next();
-        courseName_ = sc.nextLine().trim();
-        units_ = Integer.parseInt(info.substring(info.length() - 1));
+        String courseNameTemp = sc.nextLine().trim();
+        courseName_ = courseNameTemp.substring(0, courseNameTemp.length() - 3);
+        units_ = Double.parseDouble(info.substring(info.length() - 3));
     }
 
     /**

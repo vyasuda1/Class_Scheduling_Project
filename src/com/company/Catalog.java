@@ -2,10 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Represents a Catalog.
@@ -92,11 +89,73 @@ public class Catalog {
         }
     }
 
+    public void printClassesMostUsedToLeast(String majorNameParam) {
+        ArrayList<Degree> degrees = new ArrayList<>();
+        for (Degree d : degreeList_) {
+            if (d.getDegreeName_().toLowerCase().contains(majorNameParam.toLowerCase())) {
+                degrees.add(d);
+            }
+        }
+        HashMap<String, Integer> courseRecurrenceMap = new HashMap<>();
+        for (Degree d : degrees) {
+            for (String courseID : d.getCourseList_()) {
+                //map has key (courseID) and value (number of times the course occurs in the list of degrees)
+                //if the map already contains the name of a course
+                //  increment the value of the element
+                //else (if the map does not contain the course yet)
+                // add course to map, set value to 1
+                if (courseRecurrenceMap.containsKey(courseID)) {
+                    courseRecurrenceMap.replace(courseID, courseRecurrenceMap.get(courseID) + 1);
+                }
+                else {
+                    courseRecurrenceMap.put(courseID, 1);
+                }
+            }
+        }
+        courseRecurrenceMap = sortByValue(courseRecurrenceMap);
+        for (Map.Entry<String, Integer> entry : courseRecurrenceMap.entrySet()) {
+            System.out.println("Course: " + entry.getKey() +
+                    ", Recurrence: " + entry.getValue());
+        }
+
+    }
+
+    /**
+     * Sorts a hashmap by value. This code was borrowed from geeksforgeeks.org.
+     * Link: https://www.geeksforgeeks.org/sorting-a-hashmap-according-to-values/
+     * @param hm the hashmap to sort
+     * @return a sorted version of the original hashmap
+     * @author geeksforgeeks.org
+     */
+    private HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
+        // Create a list from elements of HashMap
+        List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
+
+        // Sort the list
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                if (o2.getValue().compareTo(o1.getValue()) != 0) {
+                    return (o2.getValue()).compareTo(o1.getValue());
+                }
+                else {
+                    return o1.getKey().compareTo(o2.getKey());
+                }
+            }
+        });
+
+        // put data from sorted list to hashmap
+        HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
+    }
+
     /**
      * Prints all courses with a specified number of units.
      * @param unitParam the units a course should have if printed
      */
-    public void printCoursesByUnits(int unitParam) {
+    public void printCoursesByUnits(double unitParam) {
         for (Course course : courseList_) {
             if (course.getUnits_() == unitParam)
                 System.out.println(course);

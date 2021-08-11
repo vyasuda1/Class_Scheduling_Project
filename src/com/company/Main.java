@@ -24,14 +24,6 @@ public class Main {
             System.out.println("6. See Courses Ordered from Most Used in a Major to Least");
             System.out.println("7. List all courses with a certain number of units");
 	        System.out.println("8. Quit");
-            /*
-            System.out.println("2. Search for Degree");
-            System.out.println("3. Search for Course");
-            System.out.println("4. Add Degree");
-            System.out.println("5. Add Course");
-            System.out.println("6. Delete Degree");
-            System.out.println("7. Delete Course");
-             */
 	        System.out.print("Choose an option: ");
 	        input = in.next();
 	        in.nextLine();
@@ -84,10 +76,13 @@ public class Main {
                 // hashmap<product, occurrence>
                 //        if (hashmap contains a product) { increment the value }
                 //        else { add the product to the hashmap, set value to 1 }
+                System.out.print("Input the name of a major: ");
+                String input1 = in.nextLine();
+                myCatalog.printClassesMostUsedToLeast(input1);
             }
             else if (input.equals("7")) {
                 System.out.print("Specify the number of units: ");
-                myCatalog.printCoursesByUnits(in.nextInt());
+                myCatalog.printCoursesByUnits(in.nextDouble());
             }
             else if (input.equals("8")) {
                 System.out.println("Goodbye!");
